@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import History from './History';
+import { convertUnitsToDegrees } from './calculations.js'
 
 const viewBox = "-110 -110 220 220"
 const [minX, minY, width, height ] = viewBox.split(' ')
@@ -17,20 +18,55 @@ const R = 100
  *            /   \                   /   \
  *       min 240  120 max           0       10
  * 
- * 
+ *  degrees = amp * 24 + 240 (svg-arc takes modulo if over 360)
  */
-const angles = [
-  {startAngle: 240, endAngle: 120},
-  {startAngle: 240, endAngle: 260},
-  {startAngle: 270, endAngle: 0},
-  {startAngle: 330, endAngle: 7.8},
-  {startAngle: 100, endAngle: 120},
-  {startAngle: 225, endAngle: 135},
-  {startAngle: 225, endAngle: 100},
-  {startAngle: 225, endAngle: 80},
-  {startAngle: 225, endAngle: 0},
-  {startAngle: 225, endAngle: 315},
+
+const amps = [
+  {
+    minValue: 0,
+    maxValue: 1,
+  },
+  {
+    minValue: 9,
+    maxValue: 10,
+  },
+  {
+    minValue: 0,
+    maxValue: 10,
+  },
+  {
+    minValue: 4,
+    maxValue: 6,
+  },
+  {
+    minValue: 2,
+    maxValue: 7,
+  },
+  {
+    minValue: 2,
+    maxValue: 5,
+  },
 ]
+
+const angles = amps.map(v => {
+  return {
+    startAngle: convertUnitsToDegrees(v.minValue, 0, 10),
+    endAngle: convertUnitsToDegrees(v.maxValue, 0, 10),
+  }
+})
+
+// const angles = [
+//   {startAngle: 240, endAngle: 120},
+//   {startAngle: 240, endAngle: 260},
+//   {startAngle: 270, endAngle: 0},
+//   {startAngle: 330, endAngle: 7.8},
+//   {startAngle: 100, endAngle: 120},
+//   {startAngle: 225, endAngle: 135},
+//   {startAngle: 225, endAngle: 100},
+//   {startAngle: 225, endAngle: 80},
+//   {startAngle: 225, endAngle: 0},
+//   {startAngle: 225, endAngle: 315},
+// ]
 const tests = angles.map((val) => {
   return {
     ...val,

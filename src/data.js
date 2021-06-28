@@ -2,7 +2,7 @@
 
 
 /** angle from top of gauge to min or max in degrees */
-const DEGREES_IN_HALF_ARC = 120;
+export const DEGREES_IN_HALF_ARC = 120;
 
 /** angle from the top clockwise to the minimum end stop in radians */
 const ANGLE_START = -DEGREES_IN_HALF_ARC*Math.PI/180;
