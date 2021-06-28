@@ -26,6 +26,10 @@ const amps = [
     maxValue: 10,
   },
   {
+    minValue: -2,
+    maxValue: 14,
+  },
+  {
     minValue: 4,
     maxValue: 6,
   },
