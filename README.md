@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demonstration Data
-Edit the amps JSON in App.js to try different values
+Edit the amps JSON in App.js to try different values\
 Edit the height attibute in App.js to show resizing ability.
 
 ## Available Scripts
