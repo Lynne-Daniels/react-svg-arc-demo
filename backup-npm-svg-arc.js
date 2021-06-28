@@ -1,3 +1,6 @@
+// If npm module svg-arc is removed, this is the code we are using
+
+
 const point = (x, y, r, angel) => [
   (x + Math.sin(angel) * r).toFixed(2),
   (y - Math.cos(angel) * r).toFixed(2),

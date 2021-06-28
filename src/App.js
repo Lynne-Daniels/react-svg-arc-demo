@@ -10,16 +10,7 @@ console.log(viewBoxParams, parseInt(viewBoxParams.width, 10) + parseInt((2 * vie
 const r = 100
 const R = 100
 
-/**         degrees                   amps
- *            0, 360                    5
- *              |                       |
- *              |                       |
- *             / \                     / \
- *            /   \                   /   \
- *       min 240  120 max           0       10
- * 
- *  degrees = amp * 24 + 240 (svg-arc takes modulo if over 360)
- */
+
 
 const amps = [
   {
@@ -55,18 +46,6 @@ const angles = amps.map(v => {
   }
 })
 
-// const angles = [
-//   {startAngle: 240, endAngle: 120},
-//   {startAngle: 240, endAngle: 260},
-//   {startAngle: 270, endAngle: 0},
-//   {startAngle: 330, endAngle: 7.8},
-//   {startAngle: 100, endAngle: 120},
-//   {startAngle: 225, endAngle: 135},
-//   {startAngle: 225, endAngle: 100},
-//   {startAngle: 225, endAngle: 80},
-//   {startAngle: 225, endAngle: 0},
-//   {startAngle: 225, endAngle: 315},
-// ]
 const tests = angles.map((val) => {
   return {
     ...val,
