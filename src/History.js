@@ -1,58 +1,41 @@
-import arc from 'svg-arc'
 import React from 'react'
+import Arc from './Arc'
+import { convertUnitsToDegrees } from './calculations.js'
+
+/**
+ * props.data.minValue, data.maxValue, props.metadata.min, metadata.max
+ * cx = this.width/2 where "this" is parent,  cy = this.cy
+ */
+
 
 class History extends React.Component {
 
-  /**
-   * @param {*} startAngle 
-   * @param {*} endAngle 
-   * @param {*} r 
-   * @param {*} R 
-   * @param {*} viewBox 
-   * @returns svg path d = "M startX startY" A radius radius, 0 largeArcFlag, sweepFlag, endX, endY
-   */
-  
-  makeArc(startAngle, endAngle, r, R, cx, cy) {
-
-    /** returns a double arc svg d value
-     * sample --  "M -82.27 47.50 L -82.27 47.50 A 95 95 0 0 1 -93.56 16.50 L -93.56 16.50 A 95 95  0 0 0 -82.27 47.50 Z"
-     */
-
-    const doubleArc = arc({
-      x: cx, // center of view box
-      y: cy,
-      R,
-      r,
-      start: startAngle,
-      end: endAngle
-    })
-
-    if (r === R) {
-      return  this.makeSingleArc(doubleArc)
-    } else {
-      return doubleArc
-    }
-  }
-
-  // need single arc to see round endcap shape
-  // below should be refactored into fork of npm svg-arc TODO
-  makeSingleArc (dblArc) {
-    const moveTo = dblArc.slice(0, dblArc.indexOf('L') - 1)
-    const arcPath = dblArc.slice(dblArc.indexOf('A'), dblArc.indexOf('L', dblArc.indexOf('A')) - 1)// 1st L after an A
-    console.log(moveTo, arcPath)
-    return `${moveTo} ${arcPath}`
-  }
-
   render() {
-    console.log('rendering', this.props)
-    const {startAngle, endAngle, r, R, cx, cy} = this.props
+    // kludgy validation - IRL, data and metadata may be handled further up the component tree?
+    // error boundries? default component? shudder... imagines a dashboard of little error widgets :-(
+    // proptypes, typescript?
+    
+    if (!this.props.data || this.props.data.minValue === undefined || this.props.data.maxValue  === undefined || this.props.data.minValue === null || this.props.data.maxValue === null) {
+      return null
+    }
+
+    if (!this.props.metadata || this.props.metadata.min === undefined || this.props.metadata.max === undefined ||  this.props.metadata.min === null || this.props.metadata.max === null) {
+      return null
+    }
+
+    const startAngle = convertUnitsToDegrees(this.props.data.minValue, this.props.metadata.min, this.props.metadata.max)
+    const endAngle = convertUnitsToDegrees(this.props.data.maxValue, this.props.metadata.min, this.props.metadata.max)
+    const cx = this.props.width / 2
+    const cy = this.props.cy
+    const r = this.props.width / 2 * .95
+
+    const props = {startAngle, endAngle, r, cx, cy}
+console.log(props)
     if (startAngle === undefined || endAngle === undefined) {
       return null
     }
 
-    return (<>
-      <path stroke="#7BCFFE" strokeLinecap="round" strokeWidth={5.8} d={this.makeArc(startAngle, endAngle, r, R, cx, cy)}></path>
-      </>)
+    return <Arc {...props} R={r} />
       } // end render
   } // end class History
   
