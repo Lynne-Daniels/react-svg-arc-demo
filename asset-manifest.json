@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-svg-arc-demo/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/react-svg-arc-demo/static/js/main.2bec459a.chunk.js",
-    "main.js.map": "/react-svg-arc-demo/static/js/main.2bec459a.chunk.js.map",
+    "main.js": "/react-svg-arc-demo/static/js/main.ee10a2d0.chunk.js",
+    "main.js.map": "/react-svg-arc-demo/static/js/main.ee10a2d0.chunk.js.map",
     "runtime-main.js": "/react-svg-arc-demo/static/js/runtime-main.0d6c17d5.js",
     "runtime-main.js.map": "/react-svg-arc-demo/static/js/runtime-main.0d6c17d5.js.map",
-    "static/js/2.103f5e5f.chunk.js": "/react-svg-arc-demo/static/js/2.103f5e5f.chunk.js",
-    "static/js/2.103f5e5f.chunk.js.map": "/react-svg-arc-demo/static/js/2.103f5e5f.chunk.js.map",
+    "static/js/2.07d6838b.chunk.js": "/react-svg-arc-demo/static/js/2.07d6838b.chunk.js",
+    "static/js/2.07d6838b.chunk.js.map": "/react-svg-arc-demo/static/js/2.07d6838b.chunk.js.map",
     "static/js/3.83bc6f38.chunk.js": "/react-svg-arc-demo/static/js/3.83bc6f38.chunk.js",
     "static/js/3.83bc6f38.chunk.js.map": "/react-svg-arc-demo/static/js/3.83bc6f38.chunk.js.map",
     "index.html": "/react-svg-arc-demo/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/react-svg-arc-demo/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.103f5e5f.chunk.js.LICENSE.txt": "/react-svg-arc-demo/static/js/2.103f5e5f.chunk.js.LICENSE.txt"
+    "static/js/2.07d6838b.chunk.js.LICENSE.txt": "/react-svg-arc-demo/static/js/2.07d6838b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0d6c17d5.js",
-    "static/js/2.103f5e5f.chunk.js",
+    "static/js/2.07d6838b.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.2bec459a.chunk.js"
+    "static/js/main.ee10a2d0.chunk.js"
   ]
 }
